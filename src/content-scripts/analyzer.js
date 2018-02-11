@@ -7,8 +7,6 @@ const analyzeCurrentPage = () => {
     const totalElements = allElements.length
     const classData = getClassData(allElements)
 
-    console.log('classData: ', classData)
-
     browser.runtime.sendMessage(null, {
         data: {
             totalElements,
@@ -19,7 +17,6 @@ const analyzeCurrentPage = () => {
 }
 
 browser.runtime.onMessage.addListener(message => {
-    console.log('contentMessage', message)
     if (message.type !== 'analyze') return
     analyzeCurrentPage()
 })

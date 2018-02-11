@@ -1,8 +1,8 @@
 import { render, h } from 'preact'
 import createStore from '~/store/createStore'
 import AppContainer from '~/containers/AppContainer'
-import { receiveAnalyzeResult } from '~/modules/analysis'
-import CoreLayout from '~/layouts/CoreLayout';
+import { processDomData } from '~/modules/analysis'
+import CoreLayout from '~/layouts/CoreLayout'
 
 const store = createStore()
 
@@ -35,8 +35,7 @@ browser.tabs.executeScript({ file: 'dist/content.js' })
     .catch(reportExecuteScriptError);
 
 browser.runtime.onMessage.addListener(message => {
-    console.log('popupMessage', message)
     if (message.type !== 'analyzeResult') return
 
-    store.dispatch(receiveAnalyzeResult(message.data))
+    store.dispatch(processDomData(message.data))
 })

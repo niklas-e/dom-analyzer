@@ -1,3 +1,5 @@
+import * as cssClassAnalyzer from '~/utils/css-class-analyzer'
+
 // ----------------------
 // Constants
 // ----------------------
@@ -10,6 +12,19 @@ export const receiveAnalyzeResult = data => ({
     type: RECEIVE_ANALYZE_RESULT,
     payload: { data }
 })
+
+export const processDomData = data => dispatch => {
+    const topClasses = cssClassAnalyzer.getTopUsedClasses({ classData: data.classData, topAmount: 5 })
+    const totalClasses = cssClassAnalyzer.getTotalClasses(data.classData)
+    const unusualClasses = cssClassAnalyzer.getUnusualClasses(data.classData)
+
+    dispatch(receiveAnalyzeResult({
+        totalElements: data.totalElements,
+        topClasses,
+        totalClasses,
+        unusualClasses
+    }))
+}
 
 // ----------------------
 // Reducer

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import analysis from '~/modules/analysis'
 
-
 const makeRootReducer = () => {
     const appReducer = combineReducers({
         analysis
