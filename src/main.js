@@ -30,7 +30,7 @@ render(
     MOUNT_NODE
 )
 
-browser.tabs.executeScript({ file: '/analyzer.js' })
+browser.tabs.executeScript({ file: 'dist/content-scripts/analyzer.js' })
     .then(init)
     .catch(reportExecuteScriptError);
 
