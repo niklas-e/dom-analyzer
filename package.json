@@ -1,0 +1,43 @@
+{
+  "name": "dom-analyzer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "analyzer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niklas-e/dom-analyzer.git"
+  },
+  "author": "Niklas Engblom",
+  "contributors": [
+    {
+      "name": "Sami Eklund",
+      "url": "https://github.com/SamiEklund"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niklas-e/dom-analyzer/issues"
+  },
+  "homepage": "https://github.com/niklas-e/dom-analyzer#readme",
+  "dependencies": {
+    "material-ui": "^1.0.0-beta.33",
+    "preact": "^8.2.7",
+    "preact-compat": "^3.18.0",
+    "preact-redux": "^2.0.3",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-preact": "^1.1.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "webpack": "^3.11.0"
+  }
+}

@@ -3,13 +3,13 @@
         const allElements = document.getElementsByTagName('*')
 
         browser.runtime.sendMessage(null, {
-            data: `This page contains ${allElements.length} elements`,
+            data: { summary: `This page contains ${allElements.length} elements` },
             type: 'analyzeResult'
         })
     }
 
     browser.runtime.onMessage.addListener((message) => {
-        if (message.command !== 'analyze') return
+        if (message.type !== 'analyze') return
         analyzeCurrentPage()
     });
 })()
