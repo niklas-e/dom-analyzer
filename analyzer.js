@@ -1,3 +1,16 @@
-const allElements = document.getElementsByTagName('*')
+(() => {
+    const analyzeCurrentPage = () => {
+        const allElements = document.getElementsByTagName('*')
 
-console.log('This page contains', allElements.length, 'elements')
+        browser.runtime.sendMessage(null, {
+            data: `This page contains ${allElements.length} elements`,
+            type: 'analyzeResult'
+        })
+    }
+
+    browser.runtime.onMessage.addListener((message) => {
+        if (message.command !== 'analyze') return
+        analyzeCurrentPage()
+    });
+})()
+
