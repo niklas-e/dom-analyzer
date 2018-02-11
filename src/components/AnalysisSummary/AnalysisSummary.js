@@ -1,7 +1,10 @@
-import { h } from 'preact'
+import { h, Fragment } from 'preact'
 
 const AnalysisSummary = props => (
-    <p>{props.summary || 'Let\'s analyze!'}</p>
+    <Fragment>
+        <p>Total elements: {props.totalElements}</p>
+        <p>ClassData: {(props.classData || []).map(JSON.stringify).join('\n')}</p>
+    </Fragment>
 )
 
 export default AnalysisSummary

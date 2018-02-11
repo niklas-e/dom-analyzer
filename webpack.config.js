@@ -1,11 +1,13 @@
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path')
 
 module.exports = {
-    entry: './src/main.js',
+    entry: {
+        app: './src/main.js',
+        content: './src/content-scripts/analyzer.js'
+    },
     output: {
         path: path.resolve('dist'),
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     resolve: {
         alias: {
@@ -20,11 +22,5 @@ module.exports = {
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
         ]
-    },
-    plugins: [
-        new CopyWebpackPlugin([{
-            from: './src/content-scripts',
-            to: './content-scripts'
-        }])
-    ]
+    }
 }

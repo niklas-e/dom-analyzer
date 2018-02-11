@@ -30,11 +30,12 @@ render(
     MOUNT_NODE
 )
 
-browser.tabs.executeScript({ file: 'dist/content-scripts/analyzer.js' })
+browser.tabs.executeScript({ file: 'dist/content.js' })
     .then(init)
     .catch(reportExecuteScriptError);
 
 browser.runtime.onMessage.addListener(message => {
+    console.log('popupMessage', message)
     if (message.type !== 'analyzeResult') return
 
     store.dispatch(receiveAnalyzeResult(message.data))

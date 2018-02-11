@@ -12,6 +12,6 @@
     "browser_action": {
         "default_icon": "icons/border-48.png",
         "default_title": "DOM Analyzer",
-        "default_popup": "summary.html"
+        "default_popup": "popup.html"
     }
 }

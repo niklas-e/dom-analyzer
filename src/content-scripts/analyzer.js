@@ -1,16 +1,25 @@
-(() => {
-    const analyzeCurrentPage = () => {
-        const allElements = document.getElementsByTagName('*')
+import { getClassData } from './utils'
 
-        browser.runtime.sendMessage(null, {
-            data: { summary: `This page contains ${allElements.length} elements` },
-            type: 'analyzeResult'
-        })
-    }
+let allElements
+const analyzeCurrentPage = () => {
+    allElements = document.getElementsByTagName('*')
 
-    browser.runtime.onMessage.addListener((message) => {
-        if (message.type !== 'analyze') return
-        analyzeCurrentPage()
-    });
-})()
+    const totalElements = allElements.length
+    const classData = getClassData(allElements)
 
+    console.log('classData: ', classData)
+
+    browser.runtime.sendMessage(null, {
+        data: {
+            totalElements,
+            classData
+        },
+        type: 'analyzeResult'
+    })
+}
+
+browser.runtime.onMessage.addListener(message => {
+    console.log('contentMessage', message)
+    if (message.type !== 'analyze') return
+    analyzeCurrentPage()
+})
