@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/niklas-e/dom-analyzer#readme",
   "dependencies": {
-    "material-ui": "^1.0.0-beta.33",
-    "preact": "^8.2.7",
-    "preact-compat": "^3.18.0",
-    "preact-redux": "^2.0.3",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "material-ui": "1.0.0-beta.46",
+    "preact": "8.3.1",
+    "preact-compat": "3.18.4",
+    "preact-redux": "2.0.3",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
